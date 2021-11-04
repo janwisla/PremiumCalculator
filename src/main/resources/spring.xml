@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+    <bean id="premiumCalculatorService" class="com.premium.calc.service.PremiumCalculatorServiceImpl">
+        <constructor-arg name="roundingMode" ref="roundingMode"/>
+        <constructor-arg name="scale" value="2"/>
+    </bean>
+    <bean id="roundingMode" class="java.math.RoundingMode" factory-method="valueOf">
+        <constructor-arg value="HALF_UP" />
+    </bean>
+</beans>
